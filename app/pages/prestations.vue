@@ -16,7 +16,7 @@ useSeoMeta({ title: 'Prestations, ateliers et tarifs', description: 'Comparez le
                 <h2>{{ s.title }}</h2>
                 <p>{{ s.text }}</p>
                 <p>{{ s.detail }}</p>
-                <NuxtLink class="line-link" :to="{ path: '/contact', query: { sujet: s.title } }">Échanger avec l’association →
+                <NuxtLink class="line-link" :to="{ path: '/contact', query: { sujet: s.title } }">Échanger avec l’association
                 </NuxtLink>
             </div>
         </article>
@@ -53,7 +53,7 @@ useSeoMeta({ title: 'Prestations, ateliers et tarifs', description: 'Comparez le
                 </tbody>
             </table>
             <NuxtLink class="pill" :to="{ path: '/contact', query: { sujet: 'Le réseau baby-sitting' } }">Demander une mise en
-                relation →</NuxtLink>
+                relation</NuxtLink>
         </section>
     </div>
 </template>

@@ -14,7 +14,7 @@ useSeoMeta({ title: 'Accompagnement périnatal à Rivery et Amiens', description
           <p class="intro">À Rivery, près d’Amiens, des rencontres et des gestes pour vous accompagner de la grossesse
             aux deux ans de votre enfant.</p>
           <div class="actions">
-            <NuxtLink class="pill" to="/prestations">Découvrir les prestations <span>→</span></NuxtLink>
+            <NuxtLink class="pill" to="/prestations">Découvrir les prestations</NuxtLink>
             <NuxtLink class="line-link" to="/a-propos">L’association</NuxtLink>
           </div>
         </div>
@@ -28,9 +28,11 @@ useSeoMeta({ title: 'Accompagnement périnatal à Rivery et Amiens', description
       </div>
     </section>
     <div class="ribbon">
-      <div class="shell"><span>Autour de la naissance</span><b>✧</b><a href="#cafes">Cafés Bien naître</a><b>✧</b>
-        <NuxtLink to="/prestations#bain">Bain bébé</NuxtLink><b>✧</b>
-        <NuxtLink to="/prestations#allaitement">Allaitement</NuxtLink>
+      <div class="shell">
+        <a href="#cafes">Café Bien naître</a><b aria-hidden="true">✧</b>
+        <NuxtLink to="/prestations#bain">Bain bébé</NuxtLink><b aria-hidden="true">✧</b>
+        <NuxtLink to="/prestations#allaitement">Allaitement</NuxtLink><b aria-hidden="true">✧</b>
+        <NuxtLink to="/prestations#relais">Réseau de garderie</NuxtLink>
       </div>
     </div>
     <section class="section shell">
@@ -39,7 +41,7 @@ useSeoMeta({ title: 'Accompagnement périnatal à Rivery et Amiens', description
       <div class="cards">
         <NuxtLink v-for="s in services" :key="s.id" :to="'/prestations#' + s.id" class="card"><img loading="lazy"
             :src="'/images/' + s.image + '.webp'" alt="">
-          <h3>{{ s.title }} <span>↗</span></h3>
+          <h3>{{ s.title }}</h3>
           <p>{{ s.short }}</p>
         </NuxtLink>
       </div>
@@ -53,7 +55,7 @@ useSeoMeta({ title: 'Accompagnement périnatal à Rivery et Amiens', description
           <p>Un thème, une pause gourmande et le temps de discuter entre parents. Allaitement, retour à la maison,
             petits bonheurs du quotidien… Vos bébés sont les bienvenus jusqu’à deux ans.</p>
           <NuxtLink class="pill" :to="{ path: '/contact', query: { sujet: 'Les Cafés Bien naître' } }">Demander la prochaine
-            date <span>→</span></NuxtLink>
+            date</NuxtLink>
         </div>
       </div>
     </section>
@@ -65,7 +67,7 @@ useSeoMeta({ title: 'Accompagnement périnatal à Rivery et Amiens', description
       <div>
         <p>Le réseau baby-sitting met les familles en relation avec des étudiantes sages-femmes disponibles pour garder
           leurs enfants.</p>
-        <NuxtLink class="line-link" to="/prestations#relais">Voir les tarifs de garde →</NuxtLink>
+        <NuxtLink class="line-link" to="/prestations#relais">Voir les tarifs de garde</NuxtLink>
       </div>
     </section>
   </div>

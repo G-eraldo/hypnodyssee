@@ -56,3 +56,19 @@ export const gallery = [
   ["souvenir", "Le souvenir du bain"],
   ["sortie", "La sortie du lange"],
 ];
+
+export const minimumMessageLength = 10;
+
+export function isMessageLongEnough(message) {
+  return Array.from(message.trim()).length >= minimumMessageLength;
+}
+
+export function isValidContactPhone(phone) {
+  if (typeof phone !== "string" || phone.length > 32) return false;
+  const number = phone.trim();
+  return (
+    !number ||
+    (/^\+?[\d ().-]+$/.test(number) &&
+      /^\d{7,15}$/.test(number.replace(/\D/g, "")))
+  );
+}
