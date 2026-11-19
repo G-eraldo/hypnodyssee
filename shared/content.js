@@ -47,14 +47,14 @@ export const subjects = [
   "Autre demande",
 ];
 export const gallery = [
-  ["bain-noir-blanc", "Les mains qui accueillent"],
-  ["premier-bain", "Au creux du bain"],
-  ["apres-bain", "Dans la serviette"],
-  ["petite-main", "La petite main"],
-  ["enveloppement", "L’enveloppement"],
-  ["flotter", "Un instant suspendu"],
-  ["souvenir", "Le souvenir du bain"],
-  ["sortie", "La sortie du lange"],
+  ["bain-noir-blanc", "Les mains qui accueillent", "Une adulte soutient la tête du nouveau-né dans le bain, en noir et blanc."],
+  ["premier-bain", "Au creux du bain", "Dans l’eau, un bébé endormi serre la main qui le soutient."],
+  ["apres-bain", "Dans la serviette", "Après le bain, un nouveau-né repose dans une serviette grise."],
+  ["petite-main", "La petite main", "Gros plan sur un bébé qui porte ses doigts à sa bouche."],
+  ["enveloppement", "L’enveloppement", "Un nouveau-né enveloppé dans un lange, photographié en noir et blanc."],
+  ["flotter", "Un instant suspendu", "Un bébé avec une tétine se repose dans l’eau."],
+  ["souvenir", "Le souvenir du bain", "Les mains d’une adulte entourent le visage du bébé pendant le bain."],
+  ["sortie", "La sortie du lange", "Une adulte accompagne le bébé à la sortie du lange."],
 ];
 
 export const minimumMessageLength = 10;

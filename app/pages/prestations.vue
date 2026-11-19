@@ -1,12 +1,21 @@
 <script setup>
 definePageMeta({})
 import { services } from '#shared/content';
-useSeoMeta({ title: 'Prestations, ateliers et tarifs', description: 'Comparez les tarifs, durées et lieux des bains bébé, de l’accompagnement allaitement, de la danse en portage et du massage bébé dans la Somme.' })
+useSeoMeta({ title: 'Bain bébé, allaitement et ateliers près d’Amiens : tarifs', description: 'Comparez les tarifs, durées et lieux des bains bébé, de l’accompagnement allaitement, de la danse en portage et du massage bébé dans la Somme.' })
+const identity = withSiteUrl('/').value + '#identity'
+useSchemaOrg(services.map(service => defineService({
+    '@id': withSiteUrl('/prestations').value + '#' + service.id,
+    name: service.title,
+    description: service.text,
+    image: withSiteUrl('/images/' + service.image + '.webp').value,
+    provider: { '@id': identity }
+})))
 </script>
 <template>
     <div class="shell section">
         <p class="eyebrow"><i></i> Pour les futurs et jeunes parents</p>
-        <h1>Les <em>prestations.</em></h1>
+        <h1>Bain bébé et <em>ateliers périnataux.</em></h1>
+        <p>Hélène vous accueille à Rivery, près d’Amiens, pour le bain de votre nouveau-né. Pour un bain chez vous, Émilie se déplace dans le Santerre. Retrouvez ci-dessous les tarifs, les durées et les modalités de chaque accompagnement.</p>
         <nav class="jump" aria-label="Choisir une prestation"><a v-for="s in services" :key="s.id" :href="'#' + s.id">{{
                 s.title }}</a><a href="#relais">Baby-sitting</a></nav>
         <article v-for="s in services" :id="s.id" :key="s.id" class="service"><img :src="'/images/' + s.image + '.webp'"

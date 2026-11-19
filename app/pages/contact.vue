@@ -6,7 +6,7 @@ import {
   isMessageLongEnough,
   isValidContactPhone
 } from '#shared/content'
-useSeoMeta({ title: 'Contact à Rivery', description: 'Contactez Hélène à Rivery pour un bain bébé, un atelier, un Café Bien naître ou une demande de baby-sitting près d’Amiens.' })
+useSeoMeta({ title: 'Contacter Hélène Guignant à Rivery', description: 'Contactez Hélène à Rivery pour un bain bébé, un atelier, un Café Bien naître ou une demande de baby-sitting près d’Amiens.' })
 const route = useRoute()
 const form = reactive({ name: '', firstName: '', email: '', phone: '', subject: subjects.includes(route.query.sujet) ? route.query.sujet : '', message: '', website: '', privacyRead: false })
 const state = ref('')
@@ -38,6 +38,7 @@ async function send(event) {
     Object.assign(form, { name: '', firstName: '', email: '', phone: '', subject: '', message: '', website: '', privacyRead: false })
   } catch { state.value = 'error' }
 }
+useSchemaOrg([defineWebPage({ '@type': 'ContactPage' })])
 </script>
 <template>
   <div class="shell section">

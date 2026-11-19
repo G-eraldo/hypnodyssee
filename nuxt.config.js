@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   site: {
     name: "Hypn’Odyssée Bien naître",
     defaultLocale: "fr",
-    url: process.env.NUXT_SITE_URL,
+    url: process.env.NUXT_SITE_URL || "https://hypnodyssee.fr",
   },
   ogImage: { enabled: false },
   schemaOrg: {

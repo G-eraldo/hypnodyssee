@@ -2,11 +2,12 @@
 definePageMeta({})
 useSeoMeta({ title: 'Hélène Guignant et l’association', description: 'Découvrez l’histoire d’Hypn’Odyssée Bien naître, fondée en 2023 à Rivery, et les cinq femmes qui accompagnent son projet.' })
 const equipe = [['Hélène Guignant', 'Fondatrice, accompagnante périnatale et auxiliaire de puériculture. Elle accueille les familles pour le bain à Rivery et les accompagne dans leur allaitement.'], ['Émilie', 'Elle se déplace chez les familles du Santerre pour proposer le Thalasso Bain Bébé® à domicile.'], ['Estelle', 'Elle anime les séances de danse en portage pour les parents et leurs enfants de 0 à 2 ans.'], ['Rislaine', 'Elle propose le massage bébé à domicile et partage avec les parents les gestes à reprendre chez eux.'], ['Ingrid', 'En formation en naturopathie et pédiatrie, elle approfondit ses connaissances des besoins du jeune enfant.']]
+useSchemaOrg([defineWebPage({ '@type': 'AboutPage' })])
 </script>
 <template>
     <div class="shell section">
         <p class="eyebrow"><i></i> L’association · depuis 2023</p>
-        <h1>Autour des <em>premiers liens.</em></h1>
+        <h1>Hélène Guignant <em>et l’association.</em></h1>
         <div class="service"><img src="/images/bain-noir-blanc.webp"
                 alt="Un nouveau-né soutenu par les mains d’une adulte">
             <div>
@@ -18,6 +19,7 @@ const equipe = [['Hélène Guignant', 'Fondatrice, accompagnante périnatale et 
                     Bien naître en 2023.</p>
                 <blockquote>« Devenir parent ne s’arrête pas à la sortie de l’hôpital ! »<cite>Hélène Guignant</cite>
                 </blockquote>
+                <NuxtLink class="line-link" to="/prestations#bain">Découvrir le bain bébé avec Hélène</NuxtLink>
             </div>
         </div>
         <h2>Les femmes de <em>l’association.</em></h2>

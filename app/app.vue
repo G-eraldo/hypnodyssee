@@ -4,7 +4,26 @@ const links = [['/', 'Accueil'], ['/prestations', 'Prestations'], ['/galerie', '
 const open = ref(false)
 const route = useRoute()
 watch(() => route.fullPath, () => { open.value = false })
-useSeoMeta({ ogImage: '/images/premier-bain.webp', twitterCard: 'summary_large_image' })
+useSeoMeta({
+  ogImage: withSiteUrl('/images/premier-bain.webp'),
+  ogImageWidth: 1078,
+  ogImageHeight: 1424,
+  ogImageType: 'image/webp',
+  ogImageAlt: 'Un nouveau-né tient la main qui le soutient pendant son bain.',
+  ogLocale: 'fr_FR'
+})
+useSchemaOrg([defineOrganization({
+  telephone: '+33634095103',
+  email: 'helene.guignant@gmail.com',
+  foundingDate: '2023',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '83 rue Thuillier Delambre',
+    postalCode: '80136',
+    addressLocality: 'Rivery',
+    addressCountry: 'FR'
+  }
+})])
 </script>
 <template>
   <a class="skip" href="#contenu">Aller au contenu</a>
