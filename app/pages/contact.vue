@@ -51,9 +51,15 @@ async function send(event) {
         <p><a class="line-link" href="mailto:helene.guignant@gmail.com">helene.guignant@gmail.com</a></p>
         <p>83 rue Thuillier Delambre<br>80136 Rivery</p>
       </aside>
-      <form @submit.prevent="send"><label>Votre nom<input v-model="form.name" required maxlength="100"
-            autocomplete="family-name"></label>
-        <label>Votre prénom<input v-model="form.firstName" required maxlength="100" autocomplete="given-name"></label>
+      <form @submit.prevent="send">
+        <div class="flex flex-row gap-4">
+          <label class="min-w-0 flex-1">Votre nom
+            <input v-model="form.name" required maxlength="100" autocomplete="family-name">
+          </label>
+          <label class="min-w-0 flex-1">Votre prénom
+            <input v-model="form.firstName" required maxlength="100" autocomplete="given-name">
+          </label>
+        </div>
         <label>Votre adresse e-mail<input v-model="form.email" required type="email"
             maxlength="254" autocomplete="email"></label><label>Votre téléphone (facultatif)
             <input ref="phoneField" v-model="form.phone" type="tel" maxlength="32" autocomplete="tel" @input="validateFields">
