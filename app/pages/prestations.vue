@@ -25,6 +25,10 @@ useSchemaOrg(services.map(service => defineService({
                 <h2>{{ s.title }}</h2>
                 <p>{{ s.text }}</p>
                 <p>{{ s.detail }}</p>
+                <ol v-if="s.steps" class="steps">
+                    <li v-for="(step, i) in s.steps" :key="i">{{ step }}</li>
+                </ol>
+                <p v-if="s.note" class="note">{{ s.note }}</p>
                 <NuxtLink class="line-link" :to="{ path: '/contact', query: { sujet: s.title } }">Échanger avec l’association
                 </NuxtLink>
             </div>
@@ -32,8 +36,16 @@ useSchemaOrg(services.map(service => defineService({
         <section id="relais" class="panel">
             <p class="eyebrow">Amiens et alentours</p>
             <h2>Le réseau baby-sitting</h2>
-            <p>Indiquez vos horaires, le nombre d’enfants, leur âge et vos besoins. L’association vous met en relation
-                avec des étudiantes sages-femmes disponibles.</p>
+            <p>Besoin de souffler, de prendre du temps pour vous ? L’association vous met en relation avec des étudiantes
+                sages-femmes disponibles pour garder vos enfants à votre domicile.</p>
+            <p>Indiquez-nous vos besoins : horaires souhaités, lieu d’habitation, nombre d’enfants, âges et attentes
+                particulières. Nous vous orienterons vers une étudiante susceptible de vous accompagner.</p>
+            <p><strong>Modalités pratiques :</strong></p>
+            <ul class="modalities">
+                <li>Garde réalisée à votre domicile.</li>
+                <li>Déclaration de la garde par les parents auprès de l’Urssaf (CESU ou Pajemploi selon votre situation).</li>
+                <li>Les parents restent les employeurs de l’étudiante et assurent les démarches administratives liées à son emploi.</li>
+            </ul>
             <table>
                 <caption class="sr-only">Tarifs de garde proposés</caption>
                 <thead>
@@ -64,5 +76,34 @@ useSchemaOrg(services.map(service => defineService({
             <NuxtLink class="pill" :to="{ path: '/contact', query: { sujet: 'Le réseau baby-sitting' } }">Demander une mise en
                 relation</NuxtLink>
         </section>
+        <section id="deplacements" class="panel">
+            <p class="eyebrow">Déplacements</p>
+            <h2>Se déplacer</h2>
+            <p>Les déplacements sont offerts dans un rayon de 20 km autour d’Amiens. Au-delà, des frais kilométriques
+                peuvent être appliqués.</p>
+            <p>Cette condition ne concerne pas les bains thérapeutiques proposés à domicile dans le Santerre, qui
+                disposent de leurs propres modalités de déplacement.</p>
+        </section>
     </div>
 </template>
+
+<style scoped>
+.steps {
+    margin: 0 0 1rem;
+    padding-left: 1.4rem;
+}
+.steps li {
+    margin-bottom: .55rem;
+}
+.note {
+    font-style: italic;
+    color: #5c494e;
+}
+.modalities {
+    margin: .5rem 0 1rem;
+    padding-left: 1.4rem;
+}
+.modalities li {
+    margin-bottom: .4rem;
+}
+</style>

@@ -1,6 +1,6 @@
 <script setup>
 definePageMeta({})
-import { services } from '#shared/content';
+import { services, instagram } from '#shared/content';
 useSeoMeta({ title: 'Accompagnement périnatal à Rivery, près d’Amiens', description: 'Bain bébé, allaitement, Cafés Bien naître et ateliers pour les futurs et jeunes parents à Rivery, près d’Amiens.' })
 const avis = [
   { auteur: 'Happy Pediatry', extrait: 'Un grand merci pour ce moment merveilleux, aussi bien pour bébé que pour les parents.' },
@@ -14,11 +14,13 @@ const googleProfile = 'https://share.google/BpcWvy3vg8UkgJUzW'
     <section class="hero">
       <div class="hero-grid shell">
         <div class="hero-copy">
-          <p class="eyebrow"><i></i> Association périnatale</p>
+          <p class="eyebrow"><i></i> Association périnatale à but non lucratif (loi 1901)</p>
           <h1>Hypn’Odyssée<span class="signature">Bien naître</span></h1>
           <h2>Accompagner les premiers liens,<br>soutenir les premiers pas.</h2>
-          <p class="intro">À Rivery, près d’Amiens, notre association accompagne les familles de la grossesse aux deux ans de l’enfant.
-            Retrouvez Hélène pour un bain bébé, un accompagnement à l’allaitement ou un Café Bien naître.</p>
+          <p class="intro">À Rivery, près d’Amiens, Hypn’Odyssée Bien Naître accompagne les familles tout au long des
+            1000 premiers jours, de la grossesse aux deux ans de l’enfant. Bain thérapeutique bébé, accompagnement à
+            l’allaitement, ateliers parents-bébés, Cafés Bien Naître… Des moments d’écoute, de douceur et de partage
+            pour vivre sereinement les premiers pas de la parentalité.</p>
           <div class="actions">
             <NuxtLink class="pill" to="/prestations">Découvrir les prestations</NuxtLink>
             <NuxtLink class="line-link" to="/a-propos">L’association</NuxtLink>
@@ -36,9 +38,9 @@ const googleProfile = 'https://share.google/BpcWvy3vg8UkgJUzW'
     <div class="ribbon">
       <div class="shell">
         <a href="#cafes">Café Bien naître</a><b aria-hidden="true">✧</b>
-        <NuxtLink to="/prestations#bain">Bain bébé</NuxtLink><b aria-hidden="true">✧</b>
+        <NuxtLink to="/prestations#bain">Thérapeutique Bain bébé</NuxtLink><b aria-hidden="true">✧</b>
         <NuxtLink to="/prestations#allaitement">Allaitement</NuxtLink><b aria-hidden="true">✧</b>
-        <NuxtLink to="/prestations#relais">Réseau de garderie</NuxtLink>
+        <NuxtLink to="/prestations#relais">Relai parental</NuxtLink>
       </div>
     </div>
     <section class="section shell">
@@ -56,13 +58,27 @@ const googleProfile = 'https://share.google/BpcWvy3vg8UkgJUzW'
       <div class="shell feature"><img loading="lazy" src="/images/cafe.webp"
           alt="Des parents échangent autour d’une table">
         <div>
-          <p class="eyebrow">Rivery &amp; Amiens</p>
+          <p class="eyebrow">Amiens &amp; alentours</p>
           <h2>Les Cafés<br><em>Bien naître.</em></h2>
-          <p>Un thème, une pause gourmande et le temps de discuter entre parents. Allaitement, retour à la maison,
-            petits bonheurs du quotidien… Vos bébés sont les bienvenus jusqu’à deux ans.</p>
+          <p>Des rencontres pour les parents, tout simplement. Chaque premier jeudi du mois, retrouvez-nous à Amiens et
+            aux alentours pour un moment convivial autour d’un thème différent à chaque rencontre.</p>
+          <p>Un lieu, un thème, une pause gourmande… L’occasion d’échanger librement, de partager vos expériences et de
+            rencontrer d’autres parents, dans une ambiance chaleureuse et bienveillante.</p>
+          <p>Futurs et jeunes parents, vos bébés de la naissance à 2 ans sont les bienvenus !</p>
           <NuxtLink class="pill" :to="{ path: '/contact', query: { sujet: 'Les Cafés Bien naître' } }">Demander la prochaine
             date</NuxtLink>
         </div>
+      </div>
+    </section>
+    <section class="shell section">
+      <div class="panel">
+        <p class="eyebrow"><i></i> Maison Pour Tous de Rivery</p>
+        <h2>Les rendez-vous <em>Bien Naître.</em></h2>
+        <p>Chaque troisième mardi du mois (jour à confirmer), retrouvez-nous à la Maison Pour Tous de Rivery pour un
+          temps collectif autour de la parentalité, avec un thème différent à chaque rencontre.</p>
+        <p>Des moments de découverte, de partage et d’échange, animés par nos professionnelles.</p>
+        <p>Retrouvez toute notre programmation et les prochaines dates
+          <a class="line-link" :href="instagram" target="_blank" rel="noopener noreferrer">sur Instagram</a> !</p>
       </div>
     </section>
     <section class="shell section relay">
