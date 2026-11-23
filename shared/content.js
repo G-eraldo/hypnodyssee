@@ -2,23 +2,29 @@ export const instagram = "https://www.instagram.com/hypnodyssee.biennaitre/";
 export const services = [
   {
     id: "bain",
-    title: "Le bain thérapeutique",
+    title: "Le bain thérapeutique bébé",
     image: "premier-bain",
     meta: "80 € · environ 1 h 30",
-    short: "Un premier bain au rythme de votre nouveau-né.",
-    text: "À Rivery, Hélène vous accueille pour un Thalasso Bain Bébé® inspiré de l’approche de Sonia Krief. Dans le Santerre, Émilie se déplace à domicile autour de Rosières-en-Santerre, Roye et Péronne. Le matériel est fourni.",
+    short: "Un instant suspendu, un cadeau de bienvenue.",
+    text: "Un instant suspendu pour accueillir les émotions et offrir à bébé un moment de douceur. À Rivery, Hélène vous accueille au sein de l’association pour vivre un Thalasso Bain Bébé®, après avoir été formée à l’École du Bien naître de Sonia Krief, créatrice de cette approche. Un véritable moment de douceur, d’écoute et de détente profonde, proposé dans les premières semaines de vie de votre bébé.",
     detail:
-      "L’association propose ce bain dans les premières semaines. À Rivery, un reportage avec Les photos de Cécile est possible en option (+ 100 €).",
+      "Idéalement réalisé au cours des 21 premiers jours de vie, le bain peut être proposé jusqu’à l’âge d’un mois. Pour les bébés prématurés, l’âge corrigé est pris en compte. Le bain thérapeutique est également disponible en carte cadeau, pour offrir un moment unique, riche en émotions. Pour prolonger ce moment, un reportage photo avec Les Photos de Cécile est possible en option (+ 100 €). Dans le Santerre, Émilie propose également des bains thérapeutiques à domicile, autour de Rosières-en-Santerre, Roye et Péronne. Le matériel nécessaire est fourni pour chaque prestation.",
   },
   {
     id: "allaitement",
-    title: "L’allaitement",
+    title: "L’accompagnement à l’allaitement",
     image: "allaitement",
-    meta: "40 € ou 100 € · à domicile",
+    meta: "40 € ou 100 € · à domicile ou à Rivery",
     short: "Un accompagnement avant et après la naissance.",
-    text: "Vous souhaitez préparer l’allaitement ou poser vos questions au retour à la maison ? Hélène vous accompagne à domicile, en tenant compte de votre quotidien.",
+    text: "Vous souhaitez préparer votre allaitement pendant la grossesse ou être accompagnée lors des premiers jours avec bébé ? Hélène vous propose un accompagnement personnalisé, à domicile ou au sein de l’association à Rivery, adapté à votre histoire, vos envies et vos besoins. Formée à l’École du Bien Naître auprès de Carole Hervé, spécialiste de l’allaitement maternel, Hélène vous accompagne avec des connaissances actualisées et une approche bienveillante.",
     detail:
-      "Deux rendez-vous à 40 € ou un parcours de trois rendez-vous à 100 € pour préparer la naissance, accompagner le retour à la maison et ajuster le suivi.",
+      "Un rendez-vous ponctuel (40 €) ou un parcours de trois rencontres (100 €) pour vous accompagner à chaque étape :",
+    steps: [
+      "Se préparer : comprendre l’allaitement et anticiper les premiers jours.",
+      "Le retour à la maison : trouver vos repères et accompagner la mise en place de l’allaitement.",
+      "Le suivi et les ajustements : répondre à vos questions et adapter l’accompagnement à l’évolution de vos besoins.",
+    ],
+    note: "Trois rencontres pour avancer pas à pas, poser des bases solides et vivre votre allaitement avec confiance et sérénité. Cette formation a bénéficié du soutien financier de la Région Hauts-de-France.",
   },
   {
     id: "portage",
@@ -26,15 +32,15 @@ export const services = [
     image: "portage",
     meta: "6 € par participant · environ 1 h",
     short: "Quelques pas en musique, votre bébé contre vous.",
-    text: "Estelle invite les parents et leurs enfants de 0 à 2 ans à danser ensemble. Chacun suit la musique à son rythme, y compris pour une toute première séance.",
+    text: "Estelle invite les parents et leurs enfants de 0 à 2 ans à partager un moment de complicité en musique. Une parenthèse joyeuse pour bouger, danser et profiter ensemble. Aucun besoin de savoir danser ! Pas de chorégraphie à apprendre, chacun évolue librement, à son rythme et selon ses envies. L’essentiel est de partager ce moment avec son bébé.",
     detail:
-      "Venez avec une écharpe ou un porte-bébé physiologique adapté. Une écharpe peut être prêtée sur demande, selon les disponibilités.",
+      "Venez avec votre écharpe de portage ou un porte-bébé physiologique adapté. Une écharpe peut être prêtée sur demande, selon les disponibilités.",
   },
   {
     id: "massage",
     title: "Le massage bébé",
     image: "massage",
-    meta: "55 € · 1 h à 1 h 15",
+    meta: "55 € · 1 h",
     short: "Découvrir chez vous les gestes d’un massage doux.",
     text: "Rislaine vient à domicile pour échanger sur les besoins de votre enfant, puis réaliser un massage. Vous pouvez découvrir les gestes avec elle et les reprendre ensuite avec votre bébé.",
     detail: "Le matériel et l’huile de massage sont fournis.",

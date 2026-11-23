@@ -27,5 +27,19 @@ useSchemaOrg([defineWebPage({ '@type': 'AboutPage' })])
             <h3>{{ name }}</h3>
             <p>{{ role }}</p>
         </div>
+        <section class="panel">
+            <p class="eyebrow"><i></i> Soutenir</p>
+            <h2>Soutenir <em>Hypn’Odyssée Bien Naître.</em></h2>
+            <p>Chaque don contribue directement au développement de nos projets et de nos actions auprès des familles
+                durant les 1000 premiers jours.</p>
+            <p><strong>Notre association fonctionne exclusivement grâce à l’engagement bénévole de ses membres.</strong>
+                Toutes les personnes qui la font vivre donnent de leur temps et de leurs compétences sans rémunération.</p>
+            <p>Les recettes générées par nos activités sont intégralement conservées au sein de l’association et
+                réinvesties dans ses projets, son fonctionnement et ses actions auprès des familles. Aucun bénéfice n’est
+                distribué aux membres.</p>
+            <p>Votre soutien nous permet d’imaginer et de concrétiser de nouvelles initiatives au service des parents et
+                de leurs enfants.</p>
+            <p>Chaque contribution compte. Merci de faire grandir nos projets à nos côtés !</p>
+        </section>
     </div>
 </template>
