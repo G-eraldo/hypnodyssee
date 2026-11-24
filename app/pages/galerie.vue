@@ -24,8 +24,10 @@ useSchemaOrg([defineWebPage({
         <div class="gallery"><button v-for="([file, label, description, embedded], i) in gallery" :key="file" @click="show(i)"><img
                     loading="lazy" :src="'/images/' + file + '.webp'" :alt="description"><span v-if="!embedded" class="caption">{{ label }}</span></button></div>
         <dialog ref="dialog" aria-label="Photographie agrandie" @keydown.left="move(-1)" @keydown.right="move(1)"
-            @click.self="dialog.close()"><button class="close" autofocus @click="dialog.close()">Fermer ×</button><img
-                :src="'/images/' + gallery[index][0] + '.webp'" :alt="gallery[index][2]">
+            @click.self="dialog.close()"><button class="close" autofocus @click="dialog.close()">Fermer ×</button>
+            <figure class="dialog-photo"><img :src="'/images/' + gallery[index][0] + '.webp'" :alt="gallery[index][2]">
+                <figcaption v-if="!gallery[index][3]" class="caption">{{ gallery[index][1] }}</figcaption>
+            </figure>
             <div class="controls"><button aria-label="Photo précédente" @click="move(-1)">Précédente</button><span
                     aria-live="polite">{{ index + 1 }}/{{ gallery.length }}</span><button
                     aria-label="Photo suivante" @click="move(1)">Suivante</button></div>
@@ -59,6 +61,18 @@ useSchemaOrg([defineWebPage({
     margin-top: .5rem;
     font: 1.55rem var(--display);
     color: var(--wine);
+}
+.dialog-photo {
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto;
+}
+.dialog-photo img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 65dvh;
 }
 @media (max-width: 1023px) {
     .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
