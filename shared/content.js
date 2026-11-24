@@ -3,7 +3,7 @@ export const services = [
   {
     id: "bain",
     title: "Le bain thérapeutique bébé",
-    image: "premier-bain",
+    image: "bain-therapeutique",
     meta: "80 € · environ 1 h 30",
     short: "Un instant suspendu, un cadeau de bienvenue.",
     text: "Un instant suspendu pour accueillir les émotions et offrir à bébé un moment de douceur. À Rivery, Hélène vous accueille au sein de l’association pour vivre un Thalasso Bain Bébé®, après avoir été formée à l’École du Bien naître de Sonia Krief, créatrice de cette approche. Un véritable moment de douceur, d’écoute et de détente profonde, proposé dans les premières semaines de vie de votre bébé.",
@@ -53,14 +53,14 @@ export const subjects = [
   "Autre demande",
 ];
 export const gallery = [
-  ["bain-noir-blanc", "Les mains qui accueillent", "Une adulte soutient la tête du nouveau-né dans le bain, en noir et blanc."],
-  ["premier-bain", "Au creux du bain", "Dans l’eau, un bébé endormi serre la main qui le soutient."],
-  ["apres-bain", "Dans la serviette", "Après le bain, un nouveau-né repose dans une serviette grise."],
-  ["petite-main", "La petite main", "Gros plan sur un bébé qui porte ses doigts à sa bouche."],
-  ["enveloppement", "L’enveloppement", "Un nouveau-né enveloppé dans un lange, photographié en noir et blanc."],
-  ["flotter", "Un instant suspendu", "Un bébé avec une tétine se repose dans l’eau."],
-  ["souvenir", "Le souvenir du bain", "Les mains d’une adulte entourent le visage du bébé pendant le bain."],
-  ["sortie", "La sortie du lange", "Une adulte accompagne le bébé à la sortie du lange."],
+  ["rencontres", "Rencontres", "Rencontres", true],
+  ["accompagner", "Accompagner chaque famille", "Accompagner chaque famille", true],
+  ["lacher-prise", "Lâcher-prise", "Lâcher-prise", true],
+  ["apres-bain", "Sérénité", "Après le bain, un nouveau-né repose dans une serviette grise.", false],
+  ["apaisement", "Apaisement", "Apaisement", true],
+  ["soutien", "Soutien", "Soutien", true],
+  ["confiance", "Confiance", "Confiance", true],
+  ["bain-noir-blanc", "Douceur", "Une adulte soutient la tête du nouveau-né dans le bain, en noir et blanc.", false],
 ];
 
 export const minimumMessageLength = 10;

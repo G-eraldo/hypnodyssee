@@ -14,8 +14,10 @@ useSchemaOrg(services.map(service => defineService({
 <template>
     <div class="shell section">
         <p class="eyebrow"><i></i> Pour les futurs et jeunes parents</p>
-        <h1>Bain bébé et <em>ateliers périnataux.</em></h1>
-        <p>Hélène vous accueille à Rivery, près d’Amiens, pour le bain de votre nouveau-né. Pour un bain chez vous, Émilie se déplace dans le Santerre. Retrouvez ci-dessous les tarifs, les durées et les modalités de chaque accompagnement.</p>
+        <h1>Nos <em>accompagnements.</em></h1>
+        <p>Des professionnelles passionnées par leurs spécialités, réunies par une même envie : prendre soin des
+            familles et accompagner les premiers liens. Retrouvez ci-dessous les tarifs, les durées et les modalités de
+            chaque accompagnement.</p>
         <nav class="jump" aria-label="Choisir une prestation"><a v-for="s in services" :key="s.id" :href="'#' + s.id">{{
                 s.title }}</a><a href="#relais">Baby-sitting</a></nav>
         <article v-for="s in services" :id="s.id" :key="s.id" class="service"><img :src="'/images/' + s.image + '.webp'"

@@ -1,7 +1,7 @@
 <script setup>
 definePageMeta({})
 useSeoMeta({ title: 'Hélène Guignant et l’association', description: 'Découvrez l’histoire d’Hypn’Odyssée Bien naître, fondée en 2023 à Rivery, et les cinq femmes qui accompagnent son projet.' })
-const equipe = [['Hélène Guignant', 'Fondatrice, accompagnante périnatale et auxiliaire de puériculture. Elle accueille les familles pour le bain à Rivery et les accompagne dans leur allaitement.'], ['Émilie', 'Elle se déplace chez les familles du Santerre pour proposer le Thalasso Bain Bébé® à domicile.'], ['Estelle', 'Elle anime les séances de danse en portage pour les parents et leurs enfants de 0 à 2 ans.'], ['Rislaine', 'Elle propose le massage bébé à domicile et partage avec les parents les gestes à reprendre chez eux.'], ['Ingrid', 'En formation en naturopathie et pédiatrie, elle approfondit ses connaissances des besoins du jeune enfant.']]
+const equipe = [['Hélène', 'Fondatrice, accompagnante périnatale et auxiliaire de puériculture. Elle accueille les familles pour le bain à Rivery et les accompagne dans leur allaitement.'], ['Émilie', 'Auxiliaire de puériculture. Elle se déplace chez les familles du Santerre pour proposer le Thalasso Bain Bébé® à domicile.'], ['Estelle', 'Sage-femme. Elle anime les séances de danse en portage pour les parents et leurs enfants de 0 à 2 ans.'], ['Rislaine', 'Auxiliaire de puériculture. Elle propose le massage bébé à domicile et partage avec les parents les gestes à reprendre chez eux.'], ['Ingrid', 'Auxiliaire de puériculture. Elle approfondit ses connaissances des besoins du jeune enfant.']]
 useSchemaOrg([defineWebPage({ '@type': 'AboutPage' })])
 </script>
 <template>
