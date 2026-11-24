@@ -21,8 +21,8 @@ useSchemaOrg([defineWebPage({
         <p class="eyebrow"><i></i> Galerie photos</p>
         <h1>L’esprit <em>Hypn’Odyssée.</em></h1>
         <p class="intro">Des rencontres, des émotions et de précieux moments partagés.</p>
-        <div class="gallery"><button v-for="([file, label, description, embedded], i) in gallery" :key="file" @click="show(i)"><img
-                    loading="lazy" :src="'/images/' + file + '.webp'" :alt="description"><span :class="embedded ? 'sr-only' : ''">{{ label }}</span></button></div>
+        <div class="gallery"><button v-for="([file, label, description, embedded], i) in gallery" :key="file" @click="show(i)" class="figure"><img
+                    loading="lazy" :src="'/images/' + file + '.webp'" :alt="description"><span v-if="!embedded" class="overlay-caption">{{ label }}</span></button></div>
         <dialog ref="dialog" aria-label="Photographie agrandie" @keydown.left="move(-1)" @keydown.right="move(1)"
             @click.self="dialog.close()"><button class="close" autofocus @click="dialog.close()">Fermer ×</button><img
                 :src="'/images/' + gallery[index][0] + '.webp'" :alt="gallery[index][2]">
@@ -36,8 +36,8 @@ useSchemaOrg([defineWebPage({
 <style scoped>
 .gallery {
     display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    gap: 2.5rem 1.4rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem 1.4rem;
     margin-top: 2.5rem;
     align-items: start;
 }
@@ -45,41 +45,34 @@ useSchemaOrg([defineWebPage({
     margin: 0;
     display: block;
     text-align: left;
+    position: relative;
 }
 .gallery img {
     width: 100%;
+    height: auto;
+    aspect-ratio: auto;
     object-fit: cover;
     border-radius: .4rem;
-}
-.gallery button span {
     display: block;
-    margin-top: .55rem;
-    font: 1.5rem var(--display);
-    color: var(--wine);
 }
-.gallery button:nth-child(1) { grid-column: span 7; }
-.gallery button:nth-child(1) img { aspect-ratio: 4 / 3; }
-.gallery button:nth-child(2) { grid-column: span 5; margin-top: 4.5rem; }
-.gallery button:nth-child(2) img { aspect-ratio: 3 / 4; }
-.gallery button:nth-child(3) { grid-column: span 4; }
-.gallery button:nth-child(3) img { aspect-ratio: 1 / 1; }
-.gallery button:nth-child(4) { grid-column: span 4; margin-top: 2.5rem; }
-.gallery button:nth-child(4) img { aspect-ratio: 3 / 4; }
-.gallery button:nth-child(5) { grid-column: span 4; margin-top: 1rem; }
-.gallery button:nth-child(5) img { aspect-ratio: 9 / 16; }
-.gallery button:nth-child(6) { grid-column: span 4; }
-.gallery button:nth-child(6) img { aspect-ratio: 2 / 3; }
-.gallery button:nth-child(7) { grid-column: span 4; margin-top: 3rem; }
-.gallery button:nth-child(7) img { aspect-ratio: 2 / 3; }
-.gallery button:nth-child(8) { grid-column: span 4; margin-top: 1.5rem; }
-.gallery button:nth-child(8) img { aspect-ratio: 3 / 4; }
-
-@media (max-width: 860px) {
-    .gallery {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 1.7rem 1rem;
-    }
-    .gallery button:nth-child(n) { grid-column: span 1; margin-top: 0; }
-    .gallery button:nth-child(even) { margin-top: 2.4rem; }
+.overlay-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    background: #252525;
+    color: #fff;
+    font: 500 .85rem/1.3 var(--ui);
+    letter-spacing: .02em;
+    padding: .6rem .75rem;
+    text-align: center;
+    border-radius: 0 0 .4rem .4rem;
+}
+@media (max-width: 1023px) {
+    .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 699px) {
+    .gallery { grid-template-columns: 1fr; gap: 1.6rem; }
 }
 </style>
