@@ -22,11 +22,11 @@ useSchemaOrg([defineWebPage({
         <h1>L’esprit <em>Hypn’Odyssée.</em></h1>
         <p class="intro">Des rencontres, des émotions et de précieux moments partagés.</p>
         <div class="gallery"><button v-for="([file, label, description, embedded], i) in gallery" :key="file" @click="show(i)"><img
-                    loading="lazy" :src="'/images/' + file + '.webp'" :alt="description"><span v-if="!embedded" class="caption">{{ label }}</span></button></div>
+                    loading="lazy" :src="'/images/' + file + '.webp'" :alt="embedded ? '' : description"><span class="caption">{{ label }}</span></button></div>
         <dialog ref="dialog" aria-label="Photographie agrandie" @keydown.left="move(-1)" @keydown.right="move(1)"
             @click.self="dialog.close()"><button class="close" autofocus @click="dialog.close()">Fermer ×</button>
-            <figure class="dialog-photo"><img :src="'/images/' + gallery[index][0] + '.webp'" :alt="gallery[index][2]">
-                <figcaption v-if="!gallery[index][3]" class="caption">{{ gallery[index][1] }}</figcaption>
+            <figure class="dialog-photo"><img :src="'/images/' + gallery[index][0] + '.webp'" :alt="gallery[index][3] ? '' : gallery[index][2]">
+                <figcaption class="caption">{{ gallery[index][1] }}</figcaption>
             </figure>
             <div class="controls"><button aria-label="Photo précédente" @click="move(-1)">Précédente</button><span
                     aria-live="polite">{{ index + 1 }}/{{ gallery.length }}</span><button
