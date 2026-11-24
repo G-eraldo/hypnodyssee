@@ -24,10 +24,13 @@ useSchemaOrg([defineWebPage({
         <div class="gallery"><button v-for="([file, label, description, embedded], i) in gallery" :key="file" @click="show(i)" class="figure"><img
                     loading="lazy" :src="'/images/' + file + '.webp'" :alt="description"><span v-if="!embedded" class="overlay-caption">{{ label }}</span></button></div>
         <dialog ref="dialog" aria-label="Photographie agrandie" @keydown.left="move(-1)" @keydown.right="move(1)"
-            @click.self="dialog.close()"><button class="close" autofocus @click="dialog.close()">Fermer ×</button><img
-                :src="'/images/' + gallery[index][0] + '.webp'" :alt="gallery[index][2]">
+            @click.self="dialog.close()"><button class="close" autofocus @click="dialog.close()">Fermer ×</button>
+            <div class="dialog-figure"><img
+                    :src="'/images/' + gallery[index][0] + '.webp'" :alt="gallery[index][2]">
+                <span v-if="!gallery[index][3]" class="overlay-caption">{{ gallery[index][1] }}</span>
+            </div>
             <div class="controls"><button aria-label="Photo précédente" @click="move(-1)">Précédente</button><span
-                    aria-live="polite">{{ gallery[index][3] ? '' : gallery[index][1] + ' · ' }}{{ index + 1 }}/{{ gallery.length }}</span><button
+                    aria-live="polite">{{ index + 1 }}/{{ gallery.length }}</span><button
                     aria-label="Photo suivante" @click="move(1)">Suivante</button></div>
         </dialog>
     </div>
@@ -68,6 +71,12 @@ useSchemaOrg([defineWebPage({
     padding: .6rem .75rem;
     text-align: center;
     border-radius: 0 0 .4rem .4rem;
+}
+.dialog-figure {
+    position: relative;
+}
+.dialog-figure .overlay-caption {
+    border-radius: 0;
 }
 @media (max-width: 1023px) {
     .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
