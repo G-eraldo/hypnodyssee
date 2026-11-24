@@ -21,14 +21,11 @@ useSchemaOrg([defineWebPage({
         <p class="eyebrow"><i></i> Galerie photos</p>
         <h1>L’esprit <em>Hypn’Odyssée.</em></h1>
         <p class="intro">Des rencontres, des émotions et de précieux moments partagés.</p>
-        <div class="gallery"><button v-for="([file, label, description, embedded], i) in gallery" :key="file" @click="show(i)" class="figure"><img
-                    loading="lazy" :src="'/images/' + file + '.webp'" :alt="description"><span v-if="!embedded" class="overlay-caption">{{ label }}</span></button></div>
+        <div class="gallery"><button v-for="([file, label, description, embedded], i) in gallery" :key="file" @click="show(i)"><img
+                    loading="lazy" :src="'/images/' + file + '.webp'" :alt="description"><span v-if="!embedded" class="caption">{{ label }}</span></button></div>
         <dialog ref="dialog" aria-label="Photographie agrandie" @keydown.left="move(-1)" @keydown.right="move(1)"
-            @click.self="dialog.close()"><button class="close" autofocus @click="dialog.close()">Fermer ×</button>
-            <div class="dialog-figure"><img
-                    :src="'/images/' + gallery[index][0] + '.webp'" :alt="gallery[index][2]">
-                <span v-if="!gallery[index][3]" class="overlay-caption">{{ gallery[index][1] }}</span>
-            </div>
+            @click.self="dialog.close()"><button class="close" autofocus @click="dialog.close()">Fermer ×</button><img
+                :src="'/images/' + gallery[index][0] + '.webp'" :alt="gallery[index][2]">
             <div class="controls"><button aria-label="Photo précédente" @click="move(-1)">Précédente</button><span
                     aria-live="polite">{{ index + 1 }}/{{ gallery.length }}</span><button
                     aria-label="Photo suivante" @click="move(1)">Suivante</button></div>
@@ -48,7 +45,6 @@ useSchemaOrg([defineWebPage({
     margin: 0;
     display: block;
     text-align: left;
-    position: relative;
 }
 .gallery img {
     width: 100%;
@@ -58,25 +54,11 @@ useSchemaOrg([defineWebPage({
     border-radius: .4rem;
     display: block;
 }
-.overlay-caption {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: 0;
-    background: #252525;
-    color: #fff;
-    font: 500 .85rem/1.3 var(--ui);
-    letter-spacing: .02em;
-    padding: .6rem .75rem;
-    text-align: center;
-    border-radius: 0 0 .4rem .4rem;
-}
-.dialog-figure {
-    position: relative;
-}
-.dialog-figure .overlay-caption {
-    border-radius: 0;
+.caption {
+    display: block;
+    margin-top: .5rem;
+    font: 1.55rem var(--display);
+    color: var(--wine);
 }
 @media (max-width: 1023px) {
     .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
