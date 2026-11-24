@@ -53,14 +53,14 @@ export const subjects = [
   "Autre demande",
 ];
 export const gallery = [
-  ["rencontres", "Rencontres", "Rencontres"],
-  ["accompagner", "Accompagner chaque famille", "Accompagner chaque famille"],
-  ["lacher-prise", "Lâcher-prise", "Lâcher-prise"],
-  ["apres-bain", "Sérénité", "Après le bain, un nouveau-né repose dans une serviette grise."],
-  ["apaisement", "Apaisement", "Apaisement"],
-  ["soutien", "Soutien", "Soutien"],
-  ["confiance", "Confiance", "Confiance"],
-  ["bain-noir-blanc", "Douceur", "Une adulte soutient la tête du nouveau-né dans le bain, en noir et blanc."],
+  ["rencontres", "Rencontres", "Rencontres", true],
+  ["accompagner", "Accompagner chaque famille", "Accompagner chaque famille", true],
+  ["lacher-prise", "Lâcher-prise", "Lâcher-prise", true],
+  ["apres-bain", "Sérénité", "Après le bain, un nouveau-né repose dans une serviette grise.", false],
+  ["apaisement", "Apaisement", "Apaisement", true],
+  ["soutien", "Soutien", "Soutien", true],
+  ["confiance", "Confiance", "Confiance", true],
+  ["bain-noir-blanc", "Douceur", "Une adulte soutient la tête du nouveau-né dans le bain, en noir et blanc.", false],
 ];
 
 export const minimumMessageLength = 10;
