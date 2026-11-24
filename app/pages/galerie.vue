@@ -22,12 +22,14 @@ useSchemaOrg([defineWebPage({
         <h1>L’esprit <em>Hypn’Odyssée.</em></h1>
         <p class="intro">Des rencontres, des émotions et de précieux moments partagés.</p>
         <div class="gallery"><button v-for="([file, label, description, embedded], i) in gallery" :key="file" @click="show(i)"><img
-                    loading="lazy" :src="'/images/' + file + '.webp'" :alt="description"><span :class="embedded ? 'sr-only' : ''">{{ label }}</span></button></div>
+                    loading="lazy" :src="'/images/' + file + '.webp'" :alt="description"><span v-if="!embedded" class="caption">{{ label }}</span></button></div>
         <dialog ref="dialog" aria-label="Photographie agrandie" @keydown.left="move(-1)" @keydown.right="move(1)"
-            @click.self="dialog.close()"><button class="close" autofocus @click="dialog.close()">Fermer ×</button><img
-                :src="'/images/' + gallery[index][0] + '.webp'" :alt="gallery[index][2]">
+            @click.self="dialog.close()"><button class="close" autofocus @click="dialog.close()">Fermer ×</button>
+            <figure class="dialog-photo"><img :src="'/images/' + gallery[index][0] + '.webp'" :alt="gallery[index][2]">
+                <figcaption v-if="!gallery[index][3]" class="caption">{{ gallery[index][1] }}</figcaption>
+            </figure>
             <div class="controls"><button aria-label="Photo précédente" @click="move(-1)">Précédente</button><span
-                    aria-live="polite">{{ gallery[index][3] ? '' : gallery[index][1] + ' · ' }}{{ index + 1 }}/{{ gallery.length }}</span><button
+                    aria-live="polite">{{ index + 1 }}/{{ gallery.length }}</span><button
                     aria-label="Photo suivante" @click="move(1)">Suivante</button></div>
         </dialog>
     </div>
@@ -36,8 +38,8 @@ useSchemaOrg([defineWebPage({
 <style scoped>
 .gallery {
     display: grid;
-    grid-template-columns: repeat(12, minmax(0, 1fr));
-    gap: 2.5rem 1.4rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem 1.4rem;
     margin-top: 2.5rem;
     align-items: start;
 }
@@ -48,38 +50,34 @@ useSchemaOrg([defineWebPage({
 }
 .gallery img {
     width: 100%;
+    height: auto;
+    aspect-ratio: auto;
     object-fit: cover;
     border-radius: .4rem;
-}
-.gallery button span {
     display: block;
-    margin-top: .55rem;
-    font: 1.5rem var(--display);
+}
+.caption {
+    display: block;
+    margin-top: .5rem;
+    font: 1.55rem var(--display);
     color: var(--wine);
 }
-.gallery button:nth-child(1) { grid-column: span 7; }
-.gallery button:nth-child(1) img { aspect-ratio: 4 / 3; }
-.gallery button:nth-child(2) { grid-column: span 5; margin-top: 4.5rem; }
-.gallery button:nth-child(2) img { aspect-ratio: 3 / 4; }
-.gallery button:nth-child(3) { grid-column: span 4; }
-.gallery button:nth-child(3) img { aspect-ratio: 1 / 1; }
-.gallery button:nth-child(4) { grid-column: span 4; margin-top: 2.5rem; }
-.gallery button:nth-child(4) img { aspect-ratio: 3 / 4; }
-.gallery button:nth-child(5) { grid-column: span 4; margin-top: 1rem; }
-.gallery button:nth-child(5) img { aspect-ratio: 9 / 16; }
-.gallery button:nth-child(6) { grid-column: span 4; }
-.gallery button:nth-child(6) img { aspect-ratio: 2 / 3; }
-.gallery button:nth-child(7) { grid-column: span 4; margin-top: 3rem; }
-.gallery button:nth-child(7) img { aspect-ratio: 2 / 3; }
-.gallery button:nth-child(8) { grid-column: span 4; margin-top: 1.5rem; }
-.gallery button:nth-child(8) img { aspect-ratio: 3 / 4; }
-
-@media (max-width: 860px) {
-    .gallery {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 1.7rem 1rem;
-    }
-    .gallery button:nth-child(n) { grid-column: span 1; margin-top: 0; }
-    .gallery button:nth-child(even) { margin-top: 2.4rem; }
+.dialog-photo {
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto;
+}
+.dialog-photo img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 65dvh;
+}
+@media (max-width: 1023px) {
+    .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 699px) {
+    .gallery { grid-template-columns: 1fr; gap: 1.6rem; }
 }
 </style>
