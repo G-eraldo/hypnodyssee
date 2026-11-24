@@ -26,7 +26,18 @@ const photos = gallery.map(([file, label, description, embedded]) => ({
     ratio: ratios[file] ?? 0.75
 }))
 
-const rows = [[0, 1, 2], [3, 4, 5], [6, 7]]
+/* Trois photos par rangée : les rangées sont recalculées à partir du nombre
+   de photos, pour qu’une nouvelle image entre automatiquement dans la grille. */
+const rows = computed(() => {
+    const perRow = 3
+    const out = []
+    for (let start = 0; start < photos.length; start += perRow) {
+        const row = []
+        for (let i = start; i < Math.min(start + perRow, photos.length); i += 1) row.push(i)
+        out.push(row)
+    }
+    return out
+})
 
 useSchemaOrg([defineWebPage({
     '@type': 'ImageGallery',
