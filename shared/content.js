@@ -2,8 +2,12 @@ export const instagram = "https://www.instagram.com/hypnodyssee.biennaitre/";
 export const services = [
   {
     id: "bain",
+    prices: [["Bain bébé", 80]],
     title: "Le bain thérapeutique bébé",
     image: "bain-therapeutique",
+    imageWidth: 1400,
+    imageHeight: 1398,
+    imageAlt: "Un nouveau-né repose dans les mains d’une adulte pendant le bain.",
     meta: "80 € · environ 1 h 30",
     short: "Un instant suspendu, un cadeau de bienvenue.",
     text: "Un instant suspendu pour accueillir les émotions et offrir à bébé un moment de douceur. À Rivery, Hélène vous accueille au sein de l’association pour vivre un Thalasso Bain Bébé®, après avoir été formée à l’École du Bien naître de Sonia Krief, créatrice de cette approche. Un véritable moment de douceur, d’écoute et de détente profonde, proposé dans les premières semaines de vie de votre bébé.",
@@ -12,8 +16,12 @@ export const services = [
   },
   {
     id: "allaitement",
+    prices: [["Rendez-vous ponctuel", 40], ["Parcours de trois rencontres", 100]],
     title: "L’accompagnement à l’allaitement",
     image: "allaitement",
+    imageWidth: 966,
+    imageHeight: 1200,
+    imageAlt: "Un nouveau-né tète au sein.",
     meta: "40 € ou 100 € · à domicile ou à Rivery",
     short: "Un accompagnement avant et après la naissance.",
     text: "Vous souhaitez préparer votre allaitement pendant la grossesse ou être accompagnée lors des premiers jours avec bébé ? Hélène vous propose un accompagnement personnalisé, à domicile ou au sein de l’association à Rivery, adapté à votre histoire, vos envies et vos besoins. Formée à l’École du Bien Naître auprès de Carole Hervé, spécialiste de l’allaitement maternel, Hélène vous accompagne avec des connaissances actualisées et une approche bienveillante.",
@@ -28,8 +36,12 @@ export const services = [
   },
   {
     id: "portage",
+    prices: [["Atelier par participant", 6]],
     title: "La danse en portage",
     image: "portage",
+    imageWidth: 900,
+    imageHeight: 600,
+    imageAlt: "Une mère danse avec son bébé en écharpe.",
     meta: "6 € par participant · environ 1 h",
     short: "Quelques pas en musique, votre bébé contre vous.",
     text: "Estelle invite les parents et leurs enfants de 0 à 2 ans à partager un moment de complicité en musique. Une parenthèse joyeuse pour bouger, danser et profiter ensemble. Aucun besoin de savoir danser ! Pas de chorégraphie à apprendre, chacun évolue librement, à son rythme et selon ses envies. L’essentiel est de partager ce moment avec son bébé.",
@@ -38,14 +50,24 @@ export const services = [
   },
   {
     id: "massage",
+    prices: [["Massage à domicile", 55]],
     title: "Le massage bébé",
     image: "massage",
+    imageWidth: 900,
+    imageHeight: 600,
+    imageAlt: "Des mains massent le pied d’un bébé allongé.",
     meta: "55 € · 1 h",
     short: "Découvrir chez vous les gestes d’un massage doux.",
     text: "Rislaine vient à domicile pour échanger sur les besoins de votre enfant, puis réaliser un massage. Vous pouvez découvrir les gestes avec elle et les reprendre ensuite avec votre bébé.",
     detail: "Le matériel et l’huile de massage sont fournis.",
   },
 ];
+export const childcareRates = [
+  { period: "Jour · 7 h–19 h", hourly: 12, packagePrice: 45, hours: 4 },
+  { period: "Soirée · 19 h–23 h", hourly: 13, packagePrice: 50, hours: 4 },
+  { period: "Nuit · 23 h–7 h", hourly: 15, packagePrice: 110, hours: 8 },
+];
+
 export const subjects = [
   ...services.map((s) => s.title),
   "Les Cafés Bien naître",

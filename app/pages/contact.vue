@@ -66,7 +66,7 @@ useSchemaOrg([defineWebPage({ '@type': 'ContactPage' })])
             <input ref="phoneField" v-model="form.phone" type="tel" maxlength="32" autocomplete="tel" @input="validateFields">
           </label><label>Votre demande<select class="subject-select" v-model="form.subject" required>
             <option disabled value="">Choisir un sujet</option>
-            <option v-for="s in subjects" :key="s">{{ s }}</option>
+            <option v-for="s in subjects" :key="s" :value="s">{{ s }}</option>
           </select></label><label>Votre message ({{ minimumMessageLength }} caractères minimum)<textarea ref="messageField" v-model="form.message" :minlength="minimumMessageLength" @input="validateFields" required rows="5"
             maxlength="3000"></textarea></label><input v-model="form.website" hidden tabindex="-1" autocomplete="off"
           aria-hidden="true"><small>Seul le téléphone est facultatif. Hélène utilise ces informations pour répondre à votre demande. Évitez d’inclure des informations médicales.</small>

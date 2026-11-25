@@ -15,7 +15,7 @@ const googleProfile = 'https://share.google/BpcWvy3vg8UkgJUzW'
       <div class="hero-grid shell">
         <div class="hero-copy">
           <p class="eyebrow"><i></i> Association périnatale à but non lucratif (loi 1901)</p>
-          <h1>Hypn’Odyssée<span class="signature">Bien naître</span></h1>
+          <h1>Hypn’Odyssée <span class="signature">Bien naître</span> <span class="hero-local">Accompagnement périnatal à Rivery, près d’Amiens</span></h1>
           <h2>Accompagner les premiers liens,<br>soutenir les premiers pas.</h2>
           <p class="intro">À Rivery, près d’Amiens, Hypn’Odyssée Bien Naître accompagne les familles tout au long des
             1000 premiers jours, de la grossesse aux deux ans de l’enfant. Bain thérapeutique bébé, accompagnement à
@@ -27,9 +27,9 @@ const googleProfile = 'https://share.google/BpcWvy3vg8UkgJUzW'
           </div>
         </div>
         <figure class="album">
-          <div class="arch"><img src="/images/douceur.webp" fetchpriority="high" width="1067" height="1600"
+          <div class="arch"><img src="/images/douceur.webp" srcset="/images/douceur-520.webp 520w, /images/douceur.webp 1067w" sizes="(max-width: 700px) 67vw, 38vw" fetchpriority="high" width="1067" height="1600"
               alt="Une adulte se penche au-dessus d’un nouveau-né dans le bain"></div>
-          <div class="snapshot"><img src="/images/accueil-allaitement.webp" width="560" height="559"
+          <div class="snapshot"><img src="/images/accueil-allaitement.webp" srcset="/images/accueil-allaitement-240.webp 240w, /images/accueil-allaitement.webp 560w" sizes="(max-width: 700px) 26vw, 13vw" width="560" height="559"
               alt="Un bébé tète au sein"><span>Accompagner en confiance</span></div>
           <figcaption>Rivery <b>✧</b> Somme</figcaption>
         </figure>
@@ -48,14 +48,15 @@ const googleProfile = 'https://share.google/BpcWvy3vg8UkgJUzW'
       <h2>Des ateliers pour <em>parents et bébés.</em></h2>
       <div class="cards">
         <NuxtLink v-for="s in services" :key="s.id" :to="'/prestations#' + s.id" class="card"><img loading="lazy"
-            :src="'/images/' + s.image + '.webp'" alt="">
+            :src="'/images/' + s.image + '.webp'" :alt="s.imageAlt" :width="s.imageWidth" :height="s.imageHeight"
+            :srcset="`/images/${s.image}-400.webp 400w, /images/${s.image}.webp ${s.imageWidth}w`" sizes="(max-width: 860px) 44vw, 19rem">
           <h3>{{ s.title }}</h3>
           <p>{{ s.short }}</p>
         </NuxtLink>
       </div>
     </section>
     <section id="cafes" class="cafe">
-      <div class="shell feature"><img loading="lazy" src="/images/cafe.webp"
+      <div class="shell feature"><img loading="lazy" src="/images/cafe.webp" srcset="/images/cafe-520.webp 520w, /images/cafe.webp 1000w" sizes="(max-width: 700px) 91vw, 41vw" width="1000" height="667"
           alt="Des parents échangent autour d’une table">
         <div>
           <p class="eyebrow">Amiens &amp; alentours</p>
@@ -110,6 +111,7 @@ const googleProfile = 'https://share.google/BpcWvy3vg8UkgJUzW'
 </template>
 
 <style scoped>
+.hero-local { display: block; font: 500 1rem/1.4 var(--ui); letter-spacing: normal; margin-top: 1rem }
 .reviews { background: #f3e6df }
 .review-score { margin: 1rem 0 2rem; font: 1rem/1.5 var(--ui) }
 .review-score strong { font-size: 1.35rem }

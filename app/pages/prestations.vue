@@ -1,27 +1,48 @@
 <script setup>
-definePageMeta({})
-import { services } from '#shared/content';
-useSeoMeta({ title: 'Bain bébé, allaitement et ateliers près d’Amiens : tarifs', description: 'Comparez les tarifs, durées et lieux des bains bébé, de l’accompagnement allaitement, de la danse en portage et du massage bébé dans la Somme.' })
+import { services, childcareRates } from '#shared/content';
+useSeoMeta({ title: 'Prestations et tarifs à Rivery, près d’Amiens', description: 'Bain bébé, allaitement, danse en portage, massage bébé et réseau de baby-sitting à Rivery et autour d’Amiens. Retrouvez les tarifs et les modalités.' })
 const identity = withSiteUrl('/').value + '#identity'
-useSchemaOrg(services.map(service => defineService({
-    '@id': withSiteUrl('/prestations').value + '#' + service.id,
+const childcare = {
+    id: 'relais',
+    title: 'Le réseau baby-sitting',
+    text: 'Mise en relation des familles avec des étudiantes sages-femmes pour une garde à domicile.',
+    prices: childcareRates.flatMap(rate => [
+        [rate.period + ' · une heure', rate.hourly],
+        [rate.period + ' · forfait ' + rate.hours + ' h', rate.packagePrice]
+    ])
+}
+const pageUrl = withSiteUrl('/prestations').value
+const serviceGraph = [...services, childcare].map(service => ({
+    '@type': 'Service',
+    '@id': pageUrl + '#' + service.id,
+    url: pageUrl + '#' + service.id,
     name: service.title,
     description: service.text,
-    image: withSiteUrl('/images/' + service.image + '.webp').value,
-    provider: { '@id': identity }
-})))
+    ...(service.image && { image: withSiteUrl('/images/' + service.image + '.webp').value }),
+    areaServed: service.id === 'bain' ? ['Rivery', 'Santerre'] : 'Amiens et alentours',
+    provider: { '@id': identity },
+    offers: service.prices.map(([name, price]) => ({ '@type': 'Offer', name, price, priceCurrency: 'EUR' }))
+}))
+useHead({
+    script: [{
+        key: 'prestations',
+        type: 'application/ld+json',
+        textContent: JSON.stringify({ '@context': 'https://schema.org', '@graph': serviceGraph })
+    }]
+})
 </script>
 <template>
     <div class="shell section">
         <p class="eyebrow"><i></i> Pour les futurs et jeunes parents</p>
-        <h1>Nos <em>accompagnements.</em></h1>
+        <h1>Prestations</h1>
         <p>Des professionnelles passionnées par leurs spécialités, réunies par une même envie : prendre soin des
             familles et accompagner les premiers liens. Retrouvez ci-dessous les tarifs, les durées et les modalités de
             chaque accompagnement.</p>
         <nav class="jump" aria-label="Choisir une prestation"><a v-for="s in services" :key="s.id" :href="'#' + s.id">{{
                 s.title }}</a><a href="#relais">Baby-sitting</a></nav>
         <article v-for="s in services" :id="s.id" :key="s.id" class="service"><img :src="'/images/' + s.image + '.webp'"
-                :alt="s.short" loading="lazy">
+                :alt="s.imageAlt" :width="s.imageWidth" :height="s.imageHeight"
+            :srcset="`/images/${s.image}-400.webp 400w, /images/${s.image}.webp ${s.imageWidth}w`" sizes="(max-width: 700px) 91vw, 36vw" loading="lazy">
             <div>
                 <p class="eyebrow">{{ s.meta }}</p>
                 <h2>{{ s.title }}</h2>
@@ -58,20 +79,10 @@ useSchemaOrg(services.map(service => defineService({
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Jour · 7 h–19 h</td>
-                        <td>12 €</td>
-                        <td>45 € / 4 h</td>
-                    </tr>
-                    <tr>
-                        <td>Soirée · 19 h–23 h</td>
-                        <td>13 €</td>
-                        <td>50 € / 4 h</td>
-                    </tr>
-                    <tr>
-                        <td>Nuit · 23 h–7 h</td>
-                        <td>15 €</td>
-                        <td>110 € / 8 h</td>
+                    <tr v-for="rate in childcareRates" :key="rate.period">
+                        <td>{{ rate.period }}</td>
+                        <td>{{ rate.hourly }} €</td>
+                        <td>{{ rate.packagePrice }} € / {{ rate.hours }} h</td>
                     </tr>
                 </tbody>
             </table>
