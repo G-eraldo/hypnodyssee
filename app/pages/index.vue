@@ -1,7 +1,17 @@
 <script setup>
 definePageMeta({})
-import { services, instagram } from '#shared/content';
+import { instagram, services } from '#shared/content';
 useSeoMeta({ title: 'Accompagnement périnatal à Rivery, près d’Amiens', description: 'Bain bébé, allaitement, Cafés Bien naître et ateliers pour les futurs et jeunes parents à Rivery, près d’Amiens.' })
+const ateliers = services.map(service => {
+  if (service.id !== 'bain') return service
+  return {
+    ...service,
+    image: 'bain-main-bebe',
+    imageWidth: 1000,
+    imageHeight: 894,
+    imageAlt: 'Bébé les yeux fermés, la main autour du doigt d’un adulte pendant le bain.'
+  }
+})
 const avis = [
   { auteur: 'Happy Pediatry', extrait: 'Un grand merci pour ce moment merveilleux, aussi bien pour bébé que pour les parents.' },
   { auteur: 'Emeline Lemaire', extrait: 'Un grand merci pour ce moment magnifique et inoubliable. Merci pour votre douceur autour de ma princesse.' },
@@ -15,7 +25,8 @@ const googleProfile = 'https://share.google/BpcWvy3vg8UkgJUzW'
       <div class="hero-grid shell">
         <div class="hero-copy">
           <p class="eyebrow"><i></i> Association périnatale à but non lucratif (loi 1901)</p>
-          <h1>Hypn’Odyssée <span class="signature">Bien naître</span> <span class="hero-local">Accompagnement périnatal à Rivery, près d’Amiens</span></h1>
+          <h1>Hypn’Odyssée <span class="signature">Bien naître</span> <span class="hero-local">Accompagnement périnatal
+              à Rivery, près d’Amiens</span></h1>
           <h2>Accompagner les premiers liens,<br>soutenir les premiers pas.</h2>
           <p class="intro">À Rivery, près d’Amiens, Hypn’Odyssée Bien Naître accompagne les familles tout au long des
             1000 premiers jours, de la grossesse aux deux ans de l’enfant. Bain thérapeutique bébé, accompagnement à
@@ -27,10 +38,13 @@ const googleProfile = 'https://share.google/BpcWvy3vg8UkgJUzW'
           </div>
         </div>
         <figure class="album">
-          <div class="arch"><img src="/images/douceur.webp" srcset="/images/douceur-520.webp 520w, /images/douceur.webp 1067w" sizes="(max-width: 700px) 67vw, 38vw" fetchpriority="high" width="1067" height="1600"
+          <div class="arch"><img src="/images/douceur.webp"
+              srcset="/images/douceur-520.webp 520w, /images/douceur.webp 1067w" sizes="(max-width: 700px) 67vw, 38vw"
+              fetchpriority="high" width="1067" height="1600"
               alt="Une adulte se penche au-dessus d’un nouveau-né dans le bain"></div>
-          <div class="snapshot"><img src="/images/accueil-allaitement.webp" srcset="/images/accueil-allaitement-240.webp 240w, /images/accueil-allaitement.webp 560w" sizes="(max-width: 700px) 26vw, 13vw" width="560" height="559"
-              alt="Un bébé tète au sein"><span>Accompagner en confiance</span></div>
+          <div class="snapshot"><img src="/images/accueil-allaitement.webp"
+              srcset="/images/accueil-allaitement-240.webp 240w, /images/accueil-allaitement.webp 560w"
+              sizes="(max-width: 700px) 26vw, 13vw" width="560" height="559" alt="Un bébé tète au sein"></div>
           <figcaption>Rivery <b>✧</b> Somme</figcaption>
         </figure>
       </div>
@@ -47,17 +61,19 @@ const googleProfile = 'https://share.google/BpcWvy3vg8UkgJUzW'
       <p class="eyebrow"><i></i> Les prestations</p>
       <h2>Des ateliers pour <em>parents et bébés.</em></h2>
       <div class="cards">
-        <NuxtLink v-for="s in services" :key="s.id" :to="'/prestations#' + s.id" class="card"><img loading="lazy"
+        <NuxtLink v-for="s in ateliers" :key="s.id" :to="'/prestations#' + s.id" class="card"><img loading="lazy"
             :src="'/images/' + s.image + '.webp'" :alt="s.imageAlt" :width="s.imageWidth" :height="s.imageHeight"
-            :srcset="`/images/${s.image}-400.webp 400w, /images/${s.image}.webp ${s.imageWidth}w`" sizes="(max-width: 860px) 44vw, 19rem">
+            :srcset="`/images/${s.image}-400.webp 400w, /images/${s.image}.webp ${s.imageWidth}w`"
+            sizes="(max-width: 860px) 44vw, 19rem">
           <h3>{{ s.title }}</h3>
           <p>{{ s.short }}</p>
         </NuxtLink>
       </div>
     </section>
     <section id="cafes" class="cafe">
-      <div class="shell feature"><img loading="lazy" src="/images/cafe.webp" srcset="/images/cafe-520.webp 520w, /images/cafe.webp 1000w" sizes="(max-width: 700px) 91vw, 41vw" width="1000" height="667"
-          alt="Des parents échangent autour d’une table">
+      <div class="shell feature"><img loading="lazy" src="/images/cafe.webp"
+          srcset="/images/cafe-520.webp 520w, /images/cafe.webp 1000w" sizes="(max-width: 700px) 91vw, 41vw"
+          width="1000" height="667" alt="Des parents échangent autour d’une table">
         <div>
           <p class="eyebrow">Amiens &amp; alentours</p>
           <h2>Les Cafés<br><em>Bien naître.</em></h2>
@@ -66,7 +82,8 @@ const googleProfile = 'https://share.google/BpcWvy3vg8UkgJUzW'
           <p>Un lieu, un thème, une pause gourmande… L’occasion d’échanger librement, de partager vos expériences et de
             rencontrer d’autres parents, dans une ambiance chaleureuse et bienveillante.</p>
           <p>Futurs et jeunes parents, vos bébés de la naissance à 2 ans sont les bienvenus !</p>
-          <NuxtLink class="pill" :to="{ path: '/contact', query: { sujet: 'Les Cafés Bien naître' } }">Demander la prochaine
+          <NuxtLink class="pill" :to="{ path: '/contact', query: { sujet: 'Les Cafés Bien naître' } }">Demander la
+            prochaine
             date</NuxtLink>
         </div>
       </div>
@@ -75,11 +92,12 @@ const googleProfile = 'https://share.google/BpcWvy3vg8UkgJUzW'
       <div class="panel">
         <p class="eyebrow"><i></i> Maison Pour Tous de Rivery</p>
         <h2>Les rendez-vous <em>Bien Naître.</em></h2>
-        <p>Chaque troisième mardi du mois (jour à confirmer), retrouvez-nous à la Maison Pour Tous de Rivery pour un
+        <p>Chaque troisième mardi du mois, retrouvez-nous à la Maison Pour Tous de Rivery pour un
           temps collectif autour de la parentalité, avec un thème différent à chaque rencontre.</p>
         <p>Des moments de découverte, de partage et d’échange, animés par nos professionnelles.</p>
         <p>Retrouvez toute notre programmation et les prochaines dates
-          <a class="line-link" :href="instagram" target="_blank" rel="noopener noreferrer">sur Instagram</a> !</p>
+          <a class="line-link" :href="instagram" target="_blank" rel="noopener noreferrer">sur Instagram</a> !
+        </p>
       </div>
     </section>
     <section class="shell section relay">
@@ -111,14 +129,58 @@ const googleProfile = 'https://share.google/BpcWvy3vg8UkgJUzW'
 </template>
 
 <style scoped>
-.hero-local { display: block; font: 500 1rem/1.4 var(--ui); letter-spacing: normal; margin-top: 1rem }
-.reviews { background: #f3e6df }
-.review-score { margin: 1rem 0 2rem; font: 1rem/1.5 var(--ui) }
-.review-score strong { font-size: 1.35rem }
-.review-score span { color: var(--wine); letter-spacing: .08em }
-.review-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; margin-bottom: 2rem }
-.review-grid figure { margin: 0; border-top: 1px solid var(--rule); padding-top: 1rem }
-.review-grid blockquote { font: 1.15rem/1.5 var(--body); letter-spacing: normal; margin: 0 0 .8rem }
-.review-grid figcaption { font: .85rem var(--ui) }
-@media (max-width: 700px) { .review-grid { grid-template-columns: 1fr; gap: 1.25rem } }
+.hero-local {
+  display: block;
+  font: 500 1rem/1.4 var(--ui);
+  letter-spacing: normal;
+  margin-top: 1rem
+}
+
+.reviews {
+  background: #f3e6df
+}
+
+.review-score {
+  margin: 1rem 0 2rem;
+  font: 1rem/1.5 var(--ui)
+}
+
+.review-score strong {
+  font-size: 1.35rem
+}
+
+.review-score span {
+  color: var(--wine);
+  letter-spacing: .08em
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem
+}
+
+.review-grid figure {
+  margin: 0;
+  border-top: 1px solid var(--rule);
+  padding-top: 1rem
+}
+
+.review-grid blockquote {
+  font: 1.15rem/1.5 var(--body);
+  letter-spacing: normal;
+  margin: 0 0 .8rem
+}
+
+.review-grid figcaption {
+  font: .85rem var(--ui)
+}
+
+@media (max-width: 700px) {
+  .review-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem
+  }
+}
 </style>
