@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     defaultLocale: "fr",
     url: process.env.NUXT_SITE_URL || "https://hypnodyssee.fr",
   },
+  aiReady: { enabled: false },
   ogImage: { enabled: false },
   schemaOrg: {
     identity: {
