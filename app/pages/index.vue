@@ -27,10 +27,10 @@ const googleProfile = 'https://share.google/BpcWvy3vg8UkgJUzW'
           </div>
         </div>
         <figure class="album">
-          <div class="arch"><img src="/images/premier-bain.webp" fetchpriority="high" width="1078" height="1424"
-              alt="Un nouveau-né tient la main qui le soutient dans le bain"></div>
-          <div class="snapshot"><img src="/images/bain-noir-blanc.webp" alt="" width="165" height="185"><span>Le premier
-              bain</span></div>
+          <div class="arch"><img src="/images/douceur.webp" fetchpriority="high" width="1067" height="1600"
+              alt="Une adulte se penche au-dessus d’un nouveau-né dans le bain"></div>
+          <div class="snapshot"><img src="/images/accueil-allaitement.webp" width="560" height="559"
+              alt="Un bébé tète au sein"><span>Accompagner en confiance</span></div>
           <figcaption>Rivery <b>✧</b> Somme</figcaption>
         </figure>
       </div>

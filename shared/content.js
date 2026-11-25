@@ -53,14 +53,29 @@ export const subjects = [
   "Autre demande",
 ];
 export const gallery = [
-  ["rencontres", "Rencontres", "Rencontres", true],
-  ["accompagner", "Accompagner chaque famille", "Accompagner chaque famille", true],
-  ["lacher-prise", "Lâcher-prise", "Lâcher-prise", true],
-  ["apres-bain", "Sérénité", "Après le bain, un nouveau-né repose dans une serviette grise.", false],
-  ["apaisement", "Apaisement", "Apaisement", true],
-  ["soutien", "Soutien", "Soutien", true],
-  ["confiance", "Confiance", "Confiance", true],
-  ["bain-noir-blanc", "Douceur", "Une adulte soutient la tête du nouveau-né dans le bain, en noir et blanc.", false],
+  ["rencontres", "Rencontres", "Deux bébés sur un tapis d’éveil.", false],
+  [
+    "accompagner",
+    "Accompagner chaque famille",
+    "Deux nouveau-nés emmaillotés côte à côte.",
+    false,
+  ],
+  ["lacher-prise", "Lâcher-prise", "Un nouveau-né repose dans les mains d’une adulte pendant le bain.", false],
+  [
+    "apres-bain",
+    "Respecter chaque rythme",
+    "Après le bain, un nouveau-né repose dans une serviette grise.",
+    false,
+  ],
+  ["apaisement", "Apaisement", "Les pieds d’un bébé dépassent d’un lange vert dans l’eau.", false],
+  ["soutien", "Soutien", "Des mains soutiennent les pieds d’un bébé.", false],
+  ["confiance", "Confiance", "La main d’un bébé agrippe un doigt adulte, en noir et blanc.", false],
+  [
+    "douceur",
+    "Douceur",
+    "Une adulte se penche au-dessus d’un nouveau-né dans le bain.",
+    false,
+  ],
 ];
 
 export const minimumMessageLength = 10;

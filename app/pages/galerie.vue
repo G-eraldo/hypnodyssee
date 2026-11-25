@@ -12,13 +12,13 @@ function move(n) { index.value = (index.value + n + gallery.length) % gallery.le
    photos d’une même rangée ont la même hauteur, sans rognage. */
 const ratios = {
     rencontres: 1600 / 1200,
-    accompagner: 1198 / 1600,
-    'lacher-prise': 1080 / 1102,
+    accompagner: 1080 / 1441,
+    'lacher-prise': 1600 / 1598,
     'apres-bain': 1096 / 1434,
-    apaisement: 675 / 1200,
-    soutien: 932 / 1400,
-    confiance: 932 / 1400,
-    'bain-noir-blanc': 1074 / 1436
+    apaisement: 775 / 1377,
+    soutien: 1067 / 1600,
+    confiance: 1067 / 1600,
+    douceur: 1067 / 1600
 }
 
 const photos = gallery.map(([file, label, description, embedded]) => ({
@@ -63,6 +63,7 @@ useSchemaOrg([defineWebPage({
                         class="caption">{{ photos[i].label }}</span></button>
             </div>
         </div>
+        <p class="text-sm">Crédit photo · <a class="underline" href="https://lesphotosdececile.fr">@lesphotosdececile</a></p>
         <dialog ref="dialog" aria-label="Photographie agrandie" @keydown.left="move(-1)" @keydown.right="move(1)"
             @click.self="dialog.close()"><button class="close" autofocus @click="dialog.close()">Fermer ×</button>
             <figure class="dialog-photo"><img :src="'/images/' + gallery[index][0] + '.webp'"
