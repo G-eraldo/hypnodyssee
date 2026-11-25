@@ -4,12 +4,17 @@ const links = [['/', 'Accueil'], ['/prestations', 'Prestations'], ['/galerie', '
 const open = ref(false)
 const route = useRoute()
 watch(() => route.fullPath, () => { open.value = false })
+const shareImage = withSiteUrl('/images/hypnodyssee-partage.jpg')
+const shareImageAlt = 'Hypn’Odyssée Bien naître, accompagnement périnatal. La main d’un bébé serre un doigt adulte.'
 useSeoMeta({
-  ogImage: withSiteUrl('/images/premier-bain.webp'),
-  ogImageWidth: 1078,
-  ogImageHeight: 1424,
-  ogImageType: 'image/webp',
-  ogImageAlt: 'Un nouveau-né tient la main qui le soutient pendant son bain.',
+  ogImage: shareImage,
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
+  ogImageType: 'image/jpeg',
+  ogImageAlt: shareImageAlt,
+  twitterCard: 'summary_large_image',
+  twitterImage: shareImage,
+  twitterImageAlt: shareImageAlt,
   ogLocale: 'fr_FR'
 })
 useSchemaOrg([defineOrganization({
