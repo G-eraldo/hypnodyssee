@@ -59,11 +59,12 @@ useSchemaOrg([defineWebPage({
                 <button v-for="i in row" :key="photos[i].file" class="galerie-photo" type="button"
                     :style="{ '--r': photos[i].ratio }" @click="show(i)"><img loading="lazy"
                         :src="'/images/' + photos[i].file + '.webp'"
-                        :alt="photos[i].embedded ? '' : photos[i].description"><span
-                        class="caption">{{ photos[i].label }}</span></button>
+                        :alt="photos[i].embedded ? '' : photos[i].description"><span class="caption">{{ photos[i].label
+                        }}</span></button>
             </div>
         </div>
-        <p class="text-sm">Crédit photo · <a class="underline" href="https://lesphotosdececile.fr">@lesphotosdececile</a></p>
+        <p class="text-sm">Crédit photo · <a class="underline"
+                href="https://lesphotosdececile.fr">@lesphotosdececile80</a></p>
         <dialog ref="dialog" aria-label="Photographie agrandie" @keydown.left="move(-1)" @keydown.right="move(1)"
             @click.self="dialog.close()"><button class="close" autofocus @click="dialog.close()">Fermer ×</button>
             <figure class="dialog-photo"><img :src="'/images/' + gallery[index][0] + '.webp'"
@@ -71,8 +72,8 @@ useSchemaOrg([defineWebPage({
                 <figcaption class="caption">{{ gallery[index][1] }}</figcaption>
             </figure>
             <div class="controls"><button aria-label="Photo précédente" @click="move(-1)">Précédente</button><span
-                    aria-live="polite">{{ index + 1 }}/{{ gallery.length }}</span><button
-                    aria-label="Photo suivante" @click="move(1)">Suivante</button></div>
+                    aria-live="polite">{{ index + 1 }}/{{ gallery.length }}</span><button aria-label="Photo suivante"
+                    @click="move(1)">Suivante</button></div>
         </dialog>
     </div>
 </template>
